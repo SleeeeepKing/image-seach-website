@@ -1,18 +1,26 @@
 <template>
   <div class="container">
     <div class="left-side">
-      <IndexSearch></IndexSearch>
+      <a-card style="min-height: 625px">
+        <div>
+          <IndexSearch ref="SearchInput"></IndexSearch>
+          <index-search-result ref="SearchResult"></index-search-result>
+        </div>
+      </a-card>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import IndexSearch from "@/views/index/components/IndexSearch.vue";
-</script>
+  import IndexSearch from '@/views/index/components/IndexSearch.vue';
+  import IndexSearchResult from '@/views/index/components/IndexSearchResult.vue';
+  import { ref } from 'vue';
 
-<script lang="ts">
-  export default {
-    name: 'Index', // If you want the include property of keep-alive to take effect, you must name the component
+  const SearchInput = ref();
+  const SearchResult = ref();
+
+  const search = async (formModel: object) => {
+    await SearchResult.value.fetchData(formModel);
   };
 </script>
 

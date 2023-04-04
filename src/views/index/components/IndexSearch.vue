@@ -1,5 +1,5 @@
 <template>
-  <a-card>
+  <div>
     <a-input
       v-model="formModel.filter.name.like"
       class="input"
@@ -17,7 +17,7 @@
         >{{ $t('index.search.form.search.random') }}</a-button
       >
     </div>
-  </a-card>
+  </div>
 </template>
 
 <script setup>

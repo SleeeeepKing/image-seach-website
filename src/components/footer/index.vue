@@ -1,5 +1,5 @@
 <template>
-  <a-layout-footer class="footer">CY Tech</a-layout-footer>
+  <a-layout-footer class="footer">CY Search</a-layout-footer>
 </template>
 
 <script lang="ts" setup></script>
