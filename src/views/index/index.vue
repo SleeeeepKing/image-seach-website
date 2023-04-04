@@ -3,7 +3,10 @@
     <div class="left-side">
       <a-card style="min-height: 625px">
         <div>
-          <IndexSearch ref="SearchInput"></IndexSearch>
+          <IndexSearch
+            @search="search"
+            @search-random="searchRandom"
+          ></IndexSearch>
           <index-search-result ref="SearchResult"></index-search-result>
         </div>
       </a-card>
@@ -16,11 +19,13 @@
   import IndexSearchResult from '@/views/index/components/IndexSearchResult.vue';
   import { ref } from 'vue';
 
-  const SearchInput = ref();
   const SearchResult = ref();
 
   const search = async (formModel: object) => {
     await SearchResult.value.fetchData(formModel);
+  };
+  const searchRandom = async () => {
+    await SearchResult.value.fetchRandomData();
   };
 </script>
 

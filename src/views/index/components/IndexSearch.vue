@@ -22,10 +22,12 @@
 
 <script setup>
   import { useI18n } from 'vue-i18n';
-  import { ref } from 'vue';
+  import { ref, defineEmits } from 'vue';
   import { findImage, findRandomImage } from '@/api/search';
 
   const { t } = useI18n();
+
+  const emits = defineEmits(['search', 'searchRandom']);
 
   const generateFormModel = () => {
     return {
@@ -38,15 +40,11 @@
   };
   const formModel = ref(generateFormModel());
   const search = async (form) => {
-    await findImage(form).then((res) => {
-      console.log(res);
-    });
+    emits('search', form);
   };
 
   const searchRandom = async () => {
-    await findRandomImage().then((res) => {
-      console.log(res);
-    });
+    emits('searchRandom');
   };
 </script>
 
