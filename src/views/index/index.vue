@@ -1,12 +1,14 @@
 <template>
   <div class="container">
     <div class="left-side">
-      <a-card><a-button>123123</a-button></a-card>
+      <IndexSearch></IndexSearch>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import IndexSearch from "@/views/index/components/IndexSearch.vue";
+</script>
 
 <script lang="ts">
   export default {
