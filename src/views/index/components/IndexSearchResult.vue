@@ -16,7 +16,6 @@
 </template>
 
 <script setup>
-  import { findImage, findRandomImage } from '@/api/search';
   import { ref } from 'vue';
   import { Message } from '@arco-design/web-vue';
   import useLoading from '@/hooks/loading';
@@ -32,13 +31,22 @@
     return img.src;
   };
 
-  const fetchData = async (id) => {
+  const fetchData = async (text) => {
     setLoading(true);
     searched.value = true;
     try {
-      // todo: 从后端获取图片数据
-      // const { data } = await findImage(id);
-      // srcArray.value = data.map((item) => base64ToImg(item));
+      await fetch(`http://localhost:8080/api/imgs/${text}`)
+        .then((response) => {
+          // 检查响应状态，如果正常，则解析响应数据
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error('Network response was not ok.');
+        })
+        .then((data) => {
+          // 在此处处理解析后的数据
+          srcArray.value = data.map((item) => base64ToImg(item.base64));
+        });
     } catch (err) {
       Message.error({
         content: 'Server Error',

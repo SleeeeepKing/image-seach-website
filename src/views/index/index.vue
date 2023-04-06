@@ -21,8 +21,8 @@
 
   const SearchResult = ref();
 
-  const search = async (formModel: object) => {
-    await SearchResult.value.fetchData(formModel);
+  const search = async (text: string) => {
+    await SearchResult.value.fetchData(text);
   };
   const searchRandom = async () => {
     await SearchResult.value.fetchRandomData();

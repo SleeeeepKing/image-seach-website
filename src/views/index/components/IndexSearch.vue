@@ -1,7 +1,7 @@
 <template>
   <div>
     <a-input
-      v-model="formModel.filter.name.like"
+      v-model="text"
       class="input"
       :placeholder="$t('index.search.form.input.placeholder')"
     ></a-input>
@@ -23,24 +23,14 @@
 <script setup>
   import { useI18n } from 'vue-i18n';
   import { ref, defineEmits } from 'vue';
-  import { findImage, findRandomImage } from '@/api/search';
 
   const { t } = useI18n();
 
   const emits = defineEmits(['search', 'searchRandom']);
 
-  const generateFormModel = () => {
-    return {
-      filter: {
-        name: {
-          like: '',
-        },
-      },
-    };
-  };
-  const formModel = ref(generateFormModel());
-  const search = async (form) => {
-    emits('search', form);
+  const text = ref();
+  const search = async () => {
+    emits('search', text.value);
   };
 
   const searchRandom = async () => {

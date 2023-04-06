@@ -1,8 +1,8 @@
 import axios from 'axios';
 import useCurrentUrl from '@/hooks/currentUrl';
 
-export function findImage(id: any) {
-  return axios.get(`${useCurrentUrl()}/imgs/${id}`);
+export function findImage(text: any) {
+  return axios.get(`${useCurrentUrl()}/imgs/${text}`);
 }
 
 export function findRandomImage() {
