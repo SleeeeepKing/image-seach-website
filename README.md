@@ -15,3 +15,12 @@ yarn
 ```bash
 yarn dev
 ```
+
+Project Showcase：
+
+####
+![case1](https://github.com/SleeeeepKing/image-seach-website/blob/384cfc5cfd5a7600726111857d4f2112f99b4818/src/assets/image1.png)
+
+![case2](https://github.com/SleeeeepKing/image-seach-website/blob/384cfc5cfd5a7600726111857d4f2112f99b4818/src/assets/image2.png)
+
+
